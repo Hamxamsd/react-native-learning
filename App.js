@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { Text, View, Button, TextInput } from "react-native";
+import ExStyles from "./style";
 
-export default function App() {
+const App = () => {
+  const [name, setName] = useState("");
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <View>
+        <Text style={ExStyles.textBox}>Button and Its Functionality</Text>
+        <Text style={ExStyles.textBox}>{name}</Text>
+        <Button title="Touch Me" color="purple" />
+      </View>
+      <View>
+        <TextInput
+          placeholder="Type here"
+          style={ExStyles.inputBox}
+          value={name}
+          onChangeText={(text) => setName(text)}
+        />
+        <Button title="Clear" onPress={() => setName("")} />
+      </View>
+    </>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
