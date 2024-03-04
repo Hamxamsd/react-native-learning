@@ -10,7 +10,7 @@ const App = () => {
       <View>
         <Text style={ExStyles.textBox}>Button and Its Functionality</Text>
         <Text style={ExStyles.textBox}>{name}</Text>
-        <Button title="Touch Me" color="purple" />
+        <Button title="Touch Me" style={ExStyles.buttonBox} />
       </View>
       <View>
         <TextInput
@@ -19,7 +19,11 @@ const App = () => {
           value={name}
           onChangeText={(text) => setName(text)}
         />
-        <Button title="Clear" onPress={() => setName("")} />
+        <Button
+          title="Clear"
+          style={ExStyles.buttonBox}
+          onPress={() => setName("")}
+        />
       </View>
     </>
   );

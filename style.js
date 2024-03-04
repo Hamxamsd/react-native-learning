@@ -18,4 +18,9 @@ export default ExStyles = StyleSheet.create({
     padding: 2,
     marginTop: 5,
   },
+  buttonBox: {
+    color: "purple",
+    width: 5,
+    margin: 5,
+  },
 });
