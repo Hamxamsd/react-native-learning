@@ -10,6 +10,7 @@ const App = () => {
 
   const clearDetails = () => {
     // Add logic to clear the state variables here
+    setDisplayDetails(false);
     setName("");
     setEmail("");
     setPassword("");
