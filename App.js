@@ -4,27 +4,59 @@ import ExStyles from "./style";
 
 const App = () => {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [displayDetails, setDisplayDetails] = useState(false);
+
+  const clearDetails = () => {
+    // Add logic to clear the state variables here
+    setName("");
+    setEmail("");
+    setPassword("");
+    setDisplayDetails(false);
+  };
 
   return (
     <>
       <View>
-        <Text style={ExStyles.textBox}>Button and Its Functionality</Text>
-        <Text style={ExStyles.textBox}>{name}</Text>
-        <Button title="Touch Me" style={ExStyles.buttonBox} />
+        <Text style={ExStyles.textBox}>Simple Form</Text>
       </View>
       <View>
         <TextInput
-          placeholder="Type here"
+          placeholder="Enter user name"
           style={ExStyles.inputBox}
           value={name}
           onChangeText={(text) => setName(text)}
         />
-        <Button
-          title="Clear"
-          style={ExStyles.buttonBox}
-          onPress={() => setName("")}
+        <TextInput
+          placeholder="Enter email"
+          style={ExStyles.inputBox}
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+        <TextInput
+          placeholder="Enter password"
+          style={ExStyles.inputBox}
+          secureTextEntry
+          value={password}
+          onChangeText={(text) => setPassword(text)}
         />
       </View>
+      <Button title="Get Details" onPress={() => setDisplayDetails(true)} />
+      <View style={{ marginVertical: 5 }}>
+        <Button
+          title="Clear Details"
+          style={ExStyles.buttonBox}
+          onPress={clearDetails}
+        />
+      </View>
+      {displayDetails ? (
+        <View>
+          <Text style={{ fontSize: 20 }}>{name}</Text>
+          <Text style={{ fontSize: 20 }}>{email}</Text>
+          <Text style={{ fontSize: 20 }}>{password}</Text>
+        </View>
+      ) : null}
     </>
   );
 };
