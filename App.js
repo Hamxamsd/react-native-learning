@@ -43,13 +43,13 @@ const App = () => {
           onChangeText={(text) => setPassword(text)}
         />
       </View>
-      <Button title="Get Details" onPress={() => setDisplayDetails(true)} />
+      <Button
+        title="Get Details"
+        onPress={() => setDisplayDetails(true)}
+        color="red"
+      />
       <View style={{ marginVertical: 5 }}>
-        <Button
-          title="Clear Details"
-          style={ExStyles.buttonBox}
-          onPress={clearDetails}
-        />
+        <Button title="Clear Details" onPress={clearDetails} color="green" />
       </View>
       {displayDetails ? (
         <View>
