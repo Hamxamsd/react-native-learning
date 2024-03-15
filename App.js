@@ -27,8 +27,10 @@ const App = () => {
           Flex Property here
         </Text>
         <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap" }}>
-          {users.map((item) => (
-            <Text style={ExStyles.item}>{item.name}</Text>
+          {users.map((item, id) => (
+            <Text key={id} style={ExStyles.item}>
+              {item.name}
+            </Text>
           ))}
         </View>
       </View>
