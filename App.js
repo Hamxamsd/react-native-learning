@@ -1,63 +1,27 @@
 import React, { useState } from "react";
-import { Text, View, Button, TextInput } from "react-native";
+import { Text, View, FlatList } from "react-native";
 import ExStyles from "./style";
 
 const App = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [displayDetails, setDisplayDetails] = useState(false);
-
-  const clearDetails = () => {
-    // Add logic to clear the state variables here
-    setDisplayDetails(false);
-    setName("");
-    setEmail("");
-    setPassword("");
-    setDisplayDetails(false);
-  };
-
+  const users = [
+    { name: "Hamza", id: 1 },
+    { name: "Mansoor", id: 2 },
+    { name: "Najeeb", id: 3 },
+    { name: "Waqar", id: 4 },
+  ];
   return (
     <>
       <View>
-        <Text style={ExStyles.textBox}>Simple Form</Text>
-      </View>
-      <View>
-        <TextInput
-          placeholder="Enter user name"
-          style={ExStyles.inputBox}
-          value={name}
-          onChangeText={(text) => setName(text)}
-        />
-        <TextInput
-          placeholder="Enter email"
-          style={ExStyles.inputBox}
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-        />
-        <TextInput
-          placeholder="Enter password"
-          style={ExStyles.inputBox}
-          secureTextEntry
-          value={password}
-          onChangeText={(text) => setPassword(text)}
+        <Text style={{ fontSize: 30, marginTop: 40, alignItems: "center" }}>
+          List of Flatlist Component
+        </Text>
+        <FlatList
+          data={users}
+          renderItem={({ item }) => (
+            <Text style={ExStyles.item}>{item.name}</Text>
+          )}
         />
       </View>
-      <Button
-        title="Get Details"
-        onPress={() => setDisplayDetails(true)}
-        color="red"
-      />
-      <View style={{ marginVertical: 5 }}>
-        <Button title="Clear Details" onPress={clearDetails} color="green" />
-      </View>
-      {displayDetails ? (
-        <View>
-          <Text style={{ fontSize: 20 }}>{name}</Text>
-          <Text style={{ fontSize: 20 }}>{email}</Text>
-          <Text style={{ fontSize: 20 }}>{password}</Text>
-        </View>
-      ) : null}
     </>
   );
 };

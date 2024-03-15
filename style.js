@@ -16,4 +16,14 @@ export default ExStyles = StyleSheet.create({
     padding: 2,
     margin: 5,
   },
+  item: {
+    fontSize: 22,
+    padding: 10,
+    margin: 5,
+    backgroundColor: "purple",
+    color: "#fff",
+    borderColor: "black",
+    borderWidth: 2,
+    borderRadius: 4,
+  },
 });
