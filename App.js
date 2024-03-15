@@ -27,13 +27,9 @@ const App = () => {
           Flex Property here
         </Text>
         <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap" }}>
-          <Text style={ExStyles.item}>Hamza</Text>
-          <Text style={ExStyles.item}>Mansoor</Text>
-          <Text style={ExStyles.item}>Najeeb</Text>
-          <Text style={ExStyles.item}>Qadu</Text>
-          <Text style={ExStyles.item}>Sheroo</Text>
-          <Text style={ExStyles.item}>Waqar</Text>
-          <Text style={ExStyles.item}>Mumtaz</Text>
+          {users.map((item) => (
+            <Text style={ExStyles.item}>{item.name}</Text>
+          ))}
         </View>
       </View>
     </>
