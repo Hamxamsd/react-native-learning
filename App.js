@@ -24,13 +24,17 @@ const App = () => {
     <>
       <View>
         <Text style={{ fontSize: 30, marginTop: 40, alignItems: "center" }}>
-          List of Flatlist Component
+          Flex Property here
         </Text>
-        <ScrollView>
-          {users.map((item) => (
-            <Text style={ExStyles.item}>{item.name}</Text>
-          ))}
-        </ScrollView>
+        <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap" }}>
+          <Text style={ExStyles.item}>Hamza</Text>
+          <Text style={ExStyles.item}>Mansoor</Text>
+          <Text style={ExStyles.item}>Najeeb</Text>
+          <Text style={ExStyles.item}>Qadu</Text>
+          <Text style={ExStyles.item}>Sheroo</Text>
+          <Text style={ExStyles.item}>Waqar</Text>
+          <Text style={ExStyles.item}>Mumtaz</Text>
+        </View>
       </View>
     </>
   );
