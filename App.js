@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Button, Modal } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 
 const App = () => {
   const [showModal, setShowMoal] = useState(false);
@@ -17,19 +17,18 @@ const App = () => {
               marginBlock: 5,
             }}
           >
-            Modal in React Native
+            Pressable in React Native
           </Text>
         </View>
-        <Modal transparent visible={showModal} animationType="fade">
-          <View style={styles.centerView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Hello Ameer Hamza Khan</Text>
-              <Button title="Close Modal" onPress={() => setShowMoal(false)} />
-            </View>
-          </View>
-        </Modal>
-        <View style={styles.btnView}>
-          <Button title="Open Modal" onPress={() => setShowMoal(true)} />
+        <View style={{ flex: 1, justifyContent: "center" }}>
+          <Pressable
+            // onPress={() => console.warn("Normal Press")}
+            // onLongPress={() => console.warn("Long Press")}
+            onPressIn={() => console.warn("Press In")}
+            onPressOut={() => console.warn("Press Out")}
+          >
+            <Text style={styles.btn}>Pressable</Text>
+          </Pressable>
         </View>
       </View>
     </>
@@ -42,25 +41,15 @@ const styles = StyleSheet.create({
   mainBox: {
     flex: 1,
   },
-  btnView: {
-    flex: 1,
-    justifyContent: "flex-end",
-  },
-  centerView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalText: {
-    fontSize: 20,
+  btn: {
+    backgroundColor: "darkblue",
+    color: "white",
+    padding: 10,
+    margin: 10,
+    textAlign: "center",
     fontWeight: "bold",
-    marginBottom: 20,
-  },
-  modalView: {
-    backgroundColor: "white",
-    padding: 35,
-    borderRadius: 20,
     shadowColor: "#000",
     elevation: 5,
+    borderRadius: 10,
   },
 });
