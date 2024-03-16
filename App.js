@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, TouchableHighlight } from "react-native";
 
 const App = () => {
   return (
@@ -12,19 +12,29 @@ const App = () => {
               fontSize: 22,
               fontWeight: "900",
               color: "white",
-              marginY: 5,
+              marginBlock: 5,
             }}
           >
-            Responsive Design in React Native
+            Custom Buttons in React Native
           </Text>
         </View>
-        <View style={styles.box1}>
-          <View style={styles.InnerBox1}></View>
-          <View style={styles.InnerBox2}></View>
-          <View style={styles.InnerBox3}></View>
+        <View>
+          <TouchableHighlight>
+            <Text style={styles.button}>Disabled</Text>
+          </TouchableHighlight>
+          <TouchableHighlight>
+            <Text style={[styles.button, styles.primary]}>Primary</Text>
+          </TouchableHighlight>
+          <TouchableHighlight>
+            <Text style={[styles.button, styles.success]}>Success</Text>
+          </TouchableHighlight>
+          <TouchableHighlight>
+            <Text style={[styles.button, styles.error]}>Error</Text>
+          </TouchableHighlight>
+          <TouchableHighlight>
+            <Text style={[styles.button, styles.warning]}>Warning</Text>
+          </TouchableHighlight>
         </View>
-        <View style={styles.box2}></View>
-        <View style={styles.box3}></View>
       </View>
     </>
   );
@@ -36,10 +46,29 @@ const styles = StyleSheet.create({
   mainBox: {
     flex: 1,
   },
-  box1: { flex: 1, backgroundColor: "brown", flexDirection: "row" },
-  box2: { flex: 1, backgroundColor: "pink" },
-  box3: { flex: 1, backgroundColor: "yellow" },
-  InnerBox1: { flex: 1, backgroundColor: "skyblue", margin: 5 },
-  InnerBox2: { flex: 1, backgroundColor: "lightgreen", margin: 5 },
-  InnerBox3: { flex: 1, backgroundColor: "lightgray", margin: 5 },
+  button: {
+    fontSize: 20,
+    fontWeight: "bold",
+    backgroundColor: "lightgray",
+    textAlign: "center",
+    margin: 10,
+    padding: 10,
+    color: "#fff",
+    borderRadius: 10,
+    shadowColor: "blue",
+    elevation: 10,
+    shadowOpacity: 1,
+  },
+  primary: {
+    backgroundColor: "blue",
+  },
+  success: {
+    backgroundColor: "green",
+  },
+  error: {
+    backgroundColor: "red",
+  },
+  warning: {
+    backgroundColor: "gold",
+  },
 });
