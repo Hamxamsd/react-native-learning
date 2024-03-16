@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  ActivityIndicator,
-  Button,
-} from "react-native";
+import { Text, View, StyleSheet, Button, Modal } from "react-native";
 
 const App = () => {
-  const [show, setShow] = useState(false);
+  const [showModal, setShowMoal] = useState(false);
 
   return (
     <>
@@ -23,12 +17,19 @@ const App = () => {
               marginBlock: 5,
             }}
           >
-            ActivityIndicator in React Native
+            Modal in React Native
           </Text>
         </View>
-        <View>
-          <ActivityIndicator size={100} color="purple" animating={show} />
-          <Button title="loader" onPress={() => setShow(!show)} />
+        <Modal transparent visible={showModal} animationType="fade">
+          <View style={styles.centerView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello Ameer Hamza Khan</Text>
+              <Button title="Close Modal" onPress={() => setShowMoal(false)} />
+            </View>
+          </View>
+        </Modal>
+        <View style={styles.btnView}>
+          <Button title="Open Modal" onPress={() => setShowMoal(true)} />
         </View>
       </View>
     </>
@@ -40,5 +41,26 @@ export default App;
 const styles = StyleSheet.create({
   mainBox: {
     flex: 1,
+  },
+  btnView: {
+    flex: 1,
+    justifyContent: "flex-end",
+  },
+  centerView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  modalView: {
+    backgroundColor: "white",
+    padding: 35,
+    borderRadius: 20,
+    shadowColor: "#000",
+    elevation: 5,
   },
 });
