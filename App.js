@@ -10,7 +10,18 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "purple",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontSize: 25,
+              fontWeight: "bold",
+            },
+          }}
+        >
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
