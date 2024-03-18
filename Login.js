@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Button, TextInput } from "react-native";
 
-const Login = (props) => {
-  const [data, setData] = useState("");
+const Login = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text style={{ fontSize: 22, fontWeight: "bold" }}>Login Screen</Text>
@@ -17,16 +16,8 @@ const Login = (props) => {
           borderColor: "gray",
           margin: 5,
         }}
-        onChangeText={(text) => setData(text)}
       />
-      <Button
-        title="Go to Home"
-        onPress={() =>
-          props.navigation.navigate("Home", {
-            data,
-          })
-        }
-      />
+      <Button title="Go to Home" />
     </View>
   );
 };

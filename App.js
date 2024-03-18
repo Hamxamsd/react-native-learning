@@ -1,44 +1,19 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./Home";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Login from "./Login";
-import { Button, TextInput } from "react-native";
+import SignUp from "./SignUp";
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: "purple",
-            },
-            headerTintColor: "white",
-            headerTitleStyle: {
-              fontSize: 25,
-              fontWeight: "bold",
-            },
-          }}
-        >
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{
-              headerStyle: {
-                backgroundColor: "brown",
-              },
-              headerTintColor: "white",
-              headerTitleStyle: {
-                fontSize: 25,
-                fontWeight: "bold",
-              },
-            }}
-          />
-          <Stack.Screen name="Home" component={Home} />
-        </Stack.Navigator>
+        <Tab.Navigator>
+          <Tab.Screen name="Login" component={Login} />
+          <Tab.Screen name="SignUp" component={SignUp} />
+        </Tab.Navigator>
       </NavigationContainer>
     </>
   );

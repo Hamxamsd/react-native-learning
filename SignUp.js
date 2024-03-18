@@ -1,14 +1,12 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text } from "react-native";
 
-const Home = ({ route }) => {
-  const { params } = route;
+const SignUp = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text style={{ fontSize: 22, fontWeight: "bold" }}>Home Screen</Text>
-      <Text>{params.data}</Text>
     </View>
   );
 };
 
-export default Home;
+export default SignUp;
